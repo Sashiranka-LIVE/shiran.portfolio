@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b100f">
+  <meta name="description" content="Portfolio of Shiran Roshan — a detail-oriented professional experienced in data entry, export coordination, production operations, and customer service.">
+  <meta name="color-scheme" content="dark">
+  <title>Shiran Roshan — Data Entry & Export Coordination</title>
+  <style>
+    /* =========================================================
+       SHIRAN ROSHAN — SINGLE-FILE PORTFOLIO
+       All site styling lives in this file. Edit the variables
+       below to adjust the global visual system.
+       ========================================================= */
+    :root {
+      --bg: #0b100f;
+      --bg-soft: #111816;
+      --panel: #151d1a;
+      --panel-light: #1b2521;
+      --ink: #f2f4ed;
+      --muted: #a8b2aa;
+      --muted-strong: #c5ccc5;
+      --accent: #c9ed82;
+      --accent-dark: #91b852;
+      --line: rgba(235, 242, 233, .12);
+      --line-strong: rgba(235, 242, 233, .22);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --content: 1160px;
+      --gutter: clamp(20px, 5.5vw, 76px);
+      --shadow: 0 28px 80px rgba(0, 0, 0, .26);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; background: var(--bg); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-wrap: anywhere;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 7px; }
+    ::selection { color: var(--bg); background: var(--accent); }
+    .container { width: min(var(--content), calc(100% - (var(--gutter) * 2))); margin-inline: auto; }
+    .section { padding-block: clamp(76px, 10vw, 136px); position: relative; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); font-size: .72rem; font-weight: 750; letter-spacing: .16em; line-height: 1.4; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    .section-heading { max-width: 700px; margin: 18px 0 0; font-size: clamp(2.15rem, 5vw, 4.1rem); line-height: 1.05; letter-spacing: -.055em; font-weight: 560; }
+    .section-intro { max-width: 590px; margin: 18px 0 0; color: var(--muted); font-size: clamp(.98rem, 1.6vw, 1.08rem); }
+    .accent { color: var(--accent); }
+    .muted { color: var(--muted); }
+
+    /* Header and navigation */
+    .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(235,242,233,.08); background: rgba(11,16,15,.82); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: .89rem; font-weight: 760; letter-spacing: -.015em; white-space: nowrap; }
+    .brand-mark { width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid rgba(201,237,130,.6); border-radius: 50%; color: var(--accent); font-size: .78rem; letter-spacing: -.06em; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 34px); color: var(--muted-strong); font-size: .83rem; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .nav-contact { padding: 10px 15px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink); }
+    .nav-links .nav-contact:hover { border-color: var(--accent); color: var(--accent); }
+    .menu-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
+    .menu-toggle svg { width: 20px; height: 20px; }
+
+    /* Hero */
+    .hero { min-height: min(850px, calc(100svh - 76px)); display: flex; align-items: center; padding-block: clamp(46px, 7vw, 94px) clamp(60px, 8vw, 104px); overflow: hidden; }
+    .hero::before { content: ""; position: absolute; z-index: 0; width: min(60vw, 790px); aspect-ratio: 1; top: -32%; right: -16%; background: radial-gradient(circle, rgba(153,190,91,.105), rgba(153,190,91,0) 68%); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, .82fr); align-items: center; gap: clamp(40px, 7.5vw, 102px); position: relative; z-index: 1; }
+    .hero-copy { padding-block: 14px; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px; padding: 8px 12px; border: 1px solid rgba(201,237,130,.18); border-radius: 999px; color: var(--muted-strong); background: rgba(201,237,130,.045); font-size: .74rem; }
+    .availability-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(201,237,130,.11); }
+    .hero h1 { max-width: 740px; margin: 0; font-size: clamp(3.45rem, 8.3vw, 7.1rem); line-height: .92; letter-spacing: -.075em; font-weight: 600; }
+    .hero h1 span { display: block; color: var(--accent); }
+    .hero-role { margin: 24px 0 0; color: var(--muted-strong); font-size: clamp(1rem, 2vw, 1.28rem); line-height: 1.5; letter-spacing: -.015em; }
+    .hero-intro { max-width: 570px; margin: 16px 0 0; color: var(--muted); font-size: clamp(.98rem, 1.45vw, 1.075rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 18px; border: 1px solid transparent; border-radius: 999px; font-size: .85rem; font-weight: 720; cursor: pointer; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: #141b11; background: var(--accent); }
+    .button-primary:hover { background: #d8f6a0; }
+    .button-secondary { color: var(--ink); border-color: var(--line-strong); background: rgba(255,255,255,.02); }
+    .button-secondary:hover { border-color: rgba(201,237,130,.65); color: var(--accent); }
+    .button svg { width: 16px; height: 16px; flex: 0 0 auto; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-meta svg { width: 15px; height: 15px; color: var(--accent); }
+    .portrait-wrap { position: relative; width: min(100%, 430px); justify-self: end; margin: 0; }
+    .portrait-frame { position: relative; overflow: hidden; isolation: isolate; border: 1px solid rgba(242,244,237,.18); border-radius: 220px 220px 24px 24px; background: #d6d7d5; box-shadow: var(--shadow); }
+    .portrait-frame::after { content: ""; position: absolute; inset: 45% 0 0; z-index: 1; background: linear-gradient(180deg, transparent 0%, rgba(11,16,15,.16) 100%); pointer-events: none; }
+    .portrait { width: 100%; aspect-ratio: 3 / 4.15; object-fit: cover; object-position: center 24%; }
+    .portrait-note { position: absolute; right: -18px; bottom: 34px; z-index: 2; display: flex; align-items: center; gap: 12px; padding: 13px 16px; border: 1px solid rgba(242,244,237,.16); border-radius: 13px; background: rgba(17,24,22,.93); box-shadow: 0 12px 36px rgba(0,0,0,.22); }
+    .note-symbol { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; color: var(--bg); background: var(--accent); font-size: .77rem; font-weight: 850; }
+    .portrait-note strong { display: block; font-size: .81rem; line-height: 1.3; }
+    .portrait-note small { display: block; margin-top: 3px; color: var(--muted); font-size: .69rem; }
+    .hero-index { position: absolute; left: -24px; top: 18%; color: rgba(242,244,237,.3); font-size: .68rem; font-weight: 800; letter-spacing: .14em; writing-mode: vertical-rl; }
+
+    /* Compact credentials strip */
+    .proof-strip { border-block: 1px solid var(--line); background: linear-gradient(90deg, rgba(255,255,255,.015), rgba(201,237,130,.025), rgba(255,255,255,.015)); }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .proof-item { padding: 25px clamp(14px, 3vw, 35px); border-right: 1px solid var(--line); }
+    .proof-item:first-child { padding-left: 0; }
+    .proof-item:last-child { border-right: 0; }
+    .proof-value { color: var(--accent); font-size: clamp(1.75rem, 3.4vw, 2.7rem); line-height: 1; letter-spacing: -.055em; font-weight: 620; }
+    .proof-label { margin-top: 9px; color: var(--muted); font-size: .77rem; }
+
+    /* About / strengths */
+    .about-grid { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1fr); gap: clamp(36px, 8vw, 110px); align-items: start; }
+    .about-statement { margin: 0; font-size: clamp(1.4rem, 3vw, 2.2rem); line-height: 1.35; letter-spacing: -.035em; font-weight: 480; }
+    .about-statement strong { color: var(--accent); font-weight: 560; }
+    .about-copy { margin: 20px 0 0; color: var(--muted); }
+    .skill-area { margin-top: 30px; }
+    .skill-label { margin: 0 0 13px; color: var(--muted-strong); font-size: .72rem; font-weight: 760; letter-spacing: .13em; text-transform: uppercase; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill-chip { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted-strong); background: rgba(255,255,255,.025); font-size: .77rem; }
+    .values-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .values-list li { display: grid; grid-template-columns: 46px 1fr; gap: 17px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .value-number { color: var(--accent); font-size: .77rem; letter-spacing: .09em; padding-top: 4px; }
+    .values-list h3 { margin: 0; font-size: 1rem; font-weight: 660; letter-spacing: -.02em; }
+    .values-list p { margin: 6px 0 0; color: var(--muted); font-size: .87rem; }
+
+    /* Work experience */
+    .experience-section { background: var(--bg-soft); border-block: 1px solid rgba(235,242,233,.05); }
+    .experience-header { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 54px; }
+    .experience-header .section-intro { max-width: 420px; margin-bottom: 4px; }
+    .experience-list { display: grid; gap: 28px; }
+    .experience-card { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); min-height: 350px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: rgba(255,255,255,.018); }
+    .experience-card:nth-child(even) .experience-visual { order: 2; }
+    .experience-card:nth-child(even) .experience-content { order: 1; }
+    .experience-visual { position: relative; min-height: 310px; overflow: hidden; background: #25342d; }
+    .experience-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(7,12,10,.5), rgba(7,12,10,0) 65%); pointer-events: none; }
+    .experience-visual img { width: 100%; height: 100%; min-height: 310px; position: absolute; inset: 0; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+    .experience-card:hover .experience-visual img { transform: scale(1.035); }
+    .visual-label { position: absolute; left: 22px; bottom: 19px; z-index: 2; max-width: calc(100% - 44px); color: rgba(255,255,255,.9); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; }
+    .fallback-mark { display: none; }
+    .image-fallback { display: grid; place-items: center; }
+    .image-fallback .fallback-mark { display: grid; }
+    .image-fallback::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 70% 20%, rgba(201,237,130,.25), transparent 44%), linear-gradient(135deg, #283a31, #111a16); }
+    .image-fallback .fallback-mark { position: absolute; inset: 0; display: grid; place-items: center; color: rgba(201,237,130,.65); }
+    .fallback-mark svg { width: 84px; height: 84px; stroke-width: 1; }
+    .experience-content { display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 4vw, 46px); }
+    .experience-topline { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    .experience-type { color: var(--accent); font-size: .7rem; font-weight: 760; letter-spacing: .13em; text-transform: uppercase; }
+    .experience-date { padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted-strong); font-size: .72rem; white-space: nowrap; }
+    .experience-content h3 { margin: 0; font-size: clamp(1.5rem, 2.7vw, 2.15rem); font-weight: 560; letter-spacing: -.045em; line-height: 1.15; }
+    .company { margin: 9px 0 0; color: var(--muted-strong); font-size: .9rem; }
+    .experience-content > p:not(.company) { margin: 20px 0 0; color: var(--muted); font-size: .9rem; }
+    .responsibility-list { display: grid; gap: 9px; margin: 20px 0 0; padding: 0; list-style: none; }
+    .responsibility-list li { position: relative; padding-left: 19px; color: var(--muted-strong); font-size: .82rem; }
+    .responsibility-list li::before { content: ""; position: absolute; top: .67em; left: 0; width: 6px; height: 6px; border-radius: 2px; background: var(--accent); }
+
+    /* Education */
+    .education-grid { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1fr); gap: clamp(36px, 8vw, 100px); align-items: start; }
+    .education-list { border-top: 1px solid var(--line); }
+    .education-item { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 20px; padding: 23px 0; border-bottom: 1px solid var(--line); }
+    .education-year { color: var(--accent); font-size: .8rem; font-weight: 760; padding-top: 3px; }
+    .education-item h3 { margin: 0; font-size: 1.04rem; font-weight: 650; }
+    .education-item p { margin: 5px 0 0; color: var(--muted); font-size: .86rem; }
+    .education-note { margin-top: 26px; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius-md); background: rgba(255,255,255,.018); }
+    .education-note strong { display: block; font-size: .86rem; }
+    .education-note p { margin: 8px 0 0; color: var(--muted); font-size: .82rem; }
+
+    /* Contact */
+    .contact-section { padding-top: clamp(80px, 10vw, 134px); padding-bottom: 48px; }
+    .contact-panel { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) minmax(245px, .7fr); gap: 36px; align-items: center; overflow: hidden; padding: clamp(28px, 6vw, 72px); border: 1px solid rgba(201,237,130,.22); border-radius: 30px; background: linear-gradient(125deg, #19231c, #101713 64%, #172119); }
+    .contact-panel::after { content: ""; position: absolute; z-index: -1; width: 420px; aspect-ratio: 1; right: -120px; top: -210px; border-radius: 50%; background: radial-gradient(circle, rgba(201,237,130,.15), transparent 70%); }
+    .contact-panel h2 { max-width: 640px; margin: 17px 0 0; font-size: clamp(2.3rem, 5.2vw, 4.5rem); letter-spacing: -.06em; font-weight: 560; line-height: 1.02; }
+    .contact-panel .section-intro { max-width: 500px; }
+    .contact-actions { display: grid; gap: 12px; align-content: center; }
+    .contact-link { display: flex; align-items: center; gap: 13px; min-height: 58px; padding: 13px 15px; border: 1px solid var(--line-strong); border-radius: 13px; background: rgba(255,255,255,.025); font-size: .83rem; overflow-wrap: anywhere; transition: border-color .2s ease, background .2s ease; }
+    .contact-link:hover { border-color: rgba(201,237,130,.65); background: rgba(201,237,130,.05); }
+    .contact-link svg { width: 18px; height: 18px; color: var(--accent); flex: 0 0 auto; }
+    .contact-link span { min-width: 0; }
+    .contact-link small { display: block; margin-bottom: 2px; color: var(--muted); font-size: .68rem; }
+    .download-row { margin-top: 25px; }
+    .download-note { margin: 11px 0 0; color: var(--muted); font-size: .72rem; }
+    .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-block: 28px; margin-top: 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; }
+    .footer-name { color: var(--muted-strong); font-weight: 700; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Motion: content is visible by default; JS only adds reveal effects */
+    .js-enabled .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
+    .js-enabled .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .js-enabled .reveal-delay-1 { transition-delay: .08s; }
+    .js-enabled .reveal-delay-2 { transition-delay: .16s; }
+    .js-enabled .reveal-delay-3 { transition-delay: .24s; }
+
+    /* Responsive rules */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(260px, .8fr); gap: 35px; }
+      .hero h1 { font-size: clamp(3.3rem, 8.7vw, 5.5rem); }
+      .portrait-note { right: -8px; }
+      .experience-header { align-items: start; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+      .experience-header .section-intro { margin-top: 0; }
+      .experience-card { grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); }
+      .experience-content { padding: 26px; }
+    }
+    @media (max-width: 720px) {
+      .nav-wrap { min-height: 68px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { position: absolute; top: calc(100% + 1px); left: 0; right: 0; display: none; align-items: stretch; gap: 0; padding: 10px var(--gutter) 20px; border-bottom: 1px solid var(--line); background: rgba(11,16,15,.98); }
+      .nav-links.is-open { display: flex; flex-direction: column; }
+      .nav-links a { padding: 13px 2px; }
+      .nav-links .nav-contact { margin-top: 8px; padding: 11px 14px; text-align: center; }
+      .hero { min-height: 0; padding-block: 40px 72px; }
+      .hero-grid { grid-template-columns: minmax(0,1fr); gap: 38px; }
+      .hero-copy { padding-block: 0; }
+      .hero h1 { font-size: clamp(3.45rem, 15vw, 6rem); }
+      .hero-role { margin-top: 20px; }
+      .hero-intro { max-width: 620px; }
+      .hero-actions { margin-top: 25px; }
+      .portrait-wrap { width: min(78%, 380px); justify-self: center; margin-top: 2px; }
+      .portrait-frame { border-radius: 190px 190px 22px 22px; }
+      .portrait { aspect-ratio: 3 / 3.7; object-position: center 23%; }
+      .hero-index { left: -25px; top: 13%; }
+      .portrait-note { right: -14px; bottom: 24px; }
+      .proof-item { padding: 21px 13px; }
+      .proof-value { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+      .proof-label { font-size: .69rem; line-height: 1.45; }
+      .about-grid, .education-grid { grid-template-columns: minmax(0,1fr); gap: 42px; }
+      .experience-card { grid-template-columns: minmax(0,1fr); }
+      .experience-card:nth-child(even) .experience-visual, .experience-card:nth-child(even) .experience-content { order: initial; }
+      .experience-visual, .experience-visual img { min-height: 250px; height: 250px; }
+      .experience-content { padding: clamp(22px, 6vw, 32px); }
+      .experience-content h3 { font-size: 1.85rem; }
+      .contact-panel { grid-template-columns: minmax(0,1fr); gap: 30px; }
+      .contact-actions { max-width: 500px; }
+    }
+    @media (max-width: 430px) {
+      :root { --gutter: 20px; }
+      body { font-size: 15px; }
+      .brand { gap: 9px; font-size: .84rem; }
+      .brand-mark { width: 32px; height: 32px; }
+      .hero { padding-top: 31px; }
+      .availability { margin-bottom: 22px; font-size: .68rem; }
+      .hero h1 { font-size: clamp(3.1rem, 15.2vw, 4.2rem); }
+      .hero-actions { align-items: stretch; flex-direction: column; }
+      .hero-actions .button { width: 100%; }
+      .hero-meta { flex-direction: column; gap: 10px; }
+      .portrait-wrap { width: min(82%, 340px); }
+      .portrait-note { right: -10px; padding: 11px 12px; }
+      .proof-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .proof-item { padding-inline: 10px; }
+      .proof-item:first-child { padding-left: 0; }
+      .proof-value { font-size: 1.55rem; }
+      .proof-label { font-size: .63rem; }
+      .education-item { grid-template-columns: 68px minmax(0,1fr); gap: 13px; }
+      .contact-panel { padding: 26px 21px; border-radius: 23px; }
+      .contact-panel h2 { font-size: clamp(2.2rem, 11.3vw, 3.1rem); }
+      .site-footer { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 350px) {
+      .hero h1 { font-size: 2.95rem; }
+      .proof-item { padding-inline: 7px; }
+      .proof-value { font-size: 1.4rem; }
+      .proof-label { font-size: .59rem; }
+      .portrait-wrap { width: 84%; }
+      .experience-topline { align-items: flex-start; flex-direction: column; }
+      .contact-link { align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js-enabled .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Shiran Roshan — home">
+        <span class="brand-mark" aria-hidden="true">SR</span>
+        <span>Shiran Roshan</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a class="nav-contact" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="availability reveal"><span class="availability-dot" aria-hidden="true"></span> Open to new opportunities</div>
+          <h1 class="reveal reveal-delay-1" id="hero-title">Shiran <span>Roshan.</span></h1>
+          <p class="hero-role reveal reveal-delay-2">Data-focused. Detail-driven.<br>Experienced in records and export coordination.</p>
+          <p class="hero-intro reveal reveal-delay-2">A detail-oriented professional with experience in data entry, record management, export documentation, shipment coordination, production operations, and customer service. I focus on accurate records, reliable documentation, cross-team communication, and responsible handling of confidential information.</p>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a class="button button-primary" href="#experience">Explore my experience <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="button button-secondary" href="./portfolio-assets/Shiran-Roshan-CV.pdf" download="Shiran-Roshan-CV.pdf">Download CV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></svg></a>
+          </div>
+          <div class="hero-meta reveal reveal-delay-3">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.4"/></svg> Dubai, United Arab Emirates</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Practical, hands-on experience</span>
+          </div>
+        </div>
+        <figure class="portrait-wrap reveal reveal-delay-2">
+          <span class="hero-index" aria-hidden="true">PERSONAL PORTFOLIO / 2026</span>
+          <div class="portrait-frame">
+            <img class="portrait" src="./portfolio-assets/shiran-roshan-portrait.png" alt="Portrait of Shiran Roshan wearing a navy suit and white shirt" width="1086" height="1448" fetchpriority="high">
+          </div>
+          <figcaption class="portrait-note">
+            <span class="note-symbol" aria-hidden="true">SR</span>
+            <span><strong>Shiran Roshan</strong><small>Customer service · Production</small></span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="proof-strip" aria-label="Professional highlights">
+      <div class="container proof-grid">
+        <div class="proof-item reveal"><div class="proof-value">3+</div><div class="proof-label">Years of experience</div></div>
+        <div class="proof-item reveal reveal-delay-1"><div class="proof-value">02</div><div class="proof-label">Industry environments</div></div>
+        <div class="proof-item reveal reveal-delay-2"><div class="proof-value">06</div><div class="proof-label">Core strengths listed</div></div>
+      </div>
+    </div>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="reveal">
+          <span class="eyebrow">01 / About</span>
+          <h2 class="section-heading" id="about-title">A steady hand in <span class="accent">fast-moving</span> environments.</h2>
+          <p class="about-copy">My experience spans guest-facing hospitality and detail-oriented manufacturing work. Across both, I value clear communication, consistency, safe working practices, and making sure the small details support the bigger operation.</p>
+          <div class="skill-area">
+            <p class="skill-label">Core skills from my CV</p>
+            <div class="skill-list" aria-label="Core skills">
+              <span class="skill-chip">Communication</span><span class="skill-chip">Creativity</span><span class="skill-chip">Teamwork</span><span class="skill-chip">Organization</span><span class="skill-chip">Leadership</span><span class="skill-chip">Team player</span>
+            </div>
+          </div>
+        </div>
+        <ul class="values-list reveal reveal-delay-1">
+          <li><span class="value-number">01</span><div><h3>Customer-first service</h3><p>Guest assistance, order handling, attentive service, and courteous responses to customer concerns.</p></div></li>
+          <li><span class="value-number">02</span><div><h3>Quality and consistency</h3><p>Routine checks, careful assembly and packaging, and following stated standards and procedures.</p></div></li>
+          <li><span class="value-number">03</span><div><h3>Collaborative operations</h3><p>Working closely with teammates and sharing clear information to help day-to-day work run smoothly.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="experience-header reveal">
+          <div>
+            <span class="eyebrow">02 / Experience</span>
+            <h2 class="section-heading" id="experience-title">Work built on <span class="accent">care and precision.</span></h2>
+          </div>
+          <p class="section-intro">A varied professional journey across data entry, export documentation, manufacturing, transport administration, and hospitality.</p>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-card reveal">
+            <div class="experience-visual">
+              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" alt="Office workspace representing data administration" width="1200" height="900" loading="lazy" referrerpolicy="no-referrer">
+              <span class="visual-label">Office workspace representing data administration</span>
+            </div>
+            <div class="experience-content">
+              <div class="experience-topline"><span class="experience-type">Data & administration</span><span class="experience-date">2025 — Present</span></div>
+              <h3>Data Entry Operator</h3>
+              <p class="company">Del Monte Foods · Dubai, UAE</p>
+              <p>Maintaining reliable company records through accurate data entry, careful verification, and responsible information handling.</p>
+              <ul class="responsibility-list">
+                <li>Entered and updated records in company systems accurately.</li><li>Reviewed data for errors and maintained consistent records.</li><li>Handled company information responsibly and protected confidentiality.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-card reveal">
+            <div class="experience-visual">
+              <img src="https://images.unsplash.com/photo- freight?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" alt="Representative logistics and export imagery" width="1200" height="900" loading="lazy" referrerpolicy="no-referrer">
+              <span class="visual-label">Representative logistics and export imagery</span>
+            </div>
+            <div class="experience-content">
+              <div class="experience-topline"><span class="experience-type">Export operations</span><span class="experience-date">2021 — 2025</span></div>
+              <h3>Export Coordinator Assistant</h3>
+              <p class="company">GPV Lanka Pvt Ltd · Sri Lanka</p>
+              <p>Supported shipment coordination and export documentation, helping teams keep order, customer, and shipping records accurate.</p>
+              <ul class="responsibility-list">
+                <li>Updated shipment information and prepared export reports.</li><li>Coordinated shipment updates with suppliers, customers, and internal departments.</li><li>Maintained export order and customer records; verified shipping documents.</li><li>Prepared commercial invoices, packing lists, and shipping instructions.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-card reveal">
+            <div class="experience-visual">
+              <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" alt="Representative manufacturing imagery" width="1200" height="900" loading="lazy" referrerpolicy="no-referrer">
+              <span class="visual-label">Representative manufacturing imagery</span>
+            </div>
+            <div class="experience-content">
+              <div class="experience-topline"><span class="experience-type">Electronics manufacturing</span><span class="experience-date">2022 — 2024</span></div>
+              <h3>Production Associate</h3>
+              <p class="company">GPV Lanka Pvt Ltd · Sri Lanka</p>
+              <p>Supported electronics production with a focus on assembly quality, production records, and safe working practices.</p>
+              <ul class="responsibility-list">
+                <li>Supported electronic-component assembly, testing, and packaging.</li><li>Recorded output, defects, and downtime.</li><li>Followed safety procedures and reported equipment issues.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-card reveal">
+            <div class="experience-visual">
+              <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" alt="Representative transportation imagery" width="1200" height="900" loading="lazy" referrerpolicy="no-referrer">
+              <span class="visual-label">Representative transportation imagery</span>
+            </div>
+            <div class="experience-content">
+              <div class="experience-topline"><span class="experience-type">Transport administration</span><span class="experience-date">2020 — 2021</span></div>
+              <h3>Data Entry Operator</h3>
+              <p class="company">Sonal Cab Service · Sri Lanka</p>
+              <p>Maintained clear, accurate booking and trip records to support daily transportation operations and customer service.</p>
+              <ul class="responsibility-list">
+                <li>Recorded daily bookings, trip details, and schedules.</li><li>Maintained reservation records, trip fares, and payment information.</li><li>Verified booking and customer data and corrected errors.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-card reveal">
+            <div class="experience-visual">
+              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" alt="Representative hospitality imagery" width="1200" height="900" loading="lazy" referrerpolicy="no-referrer">
+              <span class="visual-label">Representative hospitality imagery</span>
+            </div>
+            <div class="experience-content">
+              <div class="experience-topline"><span class="experience-type">Hospitality</span><span class="experience-date">2020 — 2021</span></div>
+              <h3>F&B Steward</h3>
+              <p class="company">King Coconut Family Restaurant · Sri Lanka</p>
+              <p>Helped deliver a positive guest experience through attentive service, dining-area preparation, and kitchen coordination.</p>
+              <ul class="responsibility-list">
+                <li>Welcomed guests, took orders, and served food and beverages.</li><li>Prepared and maintained tables and dining areas.</li><li>Communicated customer requests to kitchen staff and monitored supplies.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="container education-grid">
+        <div class="reveal">
+          <span class="eyebrow">03 / Education</span>
+          <h2 class="section-heading" id="education-title">Foundations for <span class="accent">what comes next.</span></h2>
+          <p class="section-intro">Academic qualifications as listed in my CV.</p>
+          <div class="education-note"><strong>Learning mindset</strong><p>Ready to bring a reliable attitude, practical experience, and a willingness to learn into a new team and environment.</p></div>
+        </div>
+        <div class="education-list reveal reveal-delay-1">
+          <article class="education-item"><span class="education-year">2020</span><div><h3>G.C.E. Advanced Level (A/L)</h3><p>Sri Lanka · Year of completion</p></div></article>
+          <article class="education-item"><span class="education-year">2017</span><div><h3>G.C.E. Ordinary Level (O/L)</h3><p>Sri Lanka · Year of completion</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <span class="eyebrow">04 / Contact</span>
+            <h2 id="contact-title">Let’s make the next step <span class="accent">count.</span></h2>
+            <p class="section-intro">For professional opportunities or to discuss a role that matches my experience, feel free to get in touch.</p>
+            <div class="download-row">
+              <a class="button button-primary" href="./portfolio-assets/Shiran-Roshan-CV.pdf" download="Shiran-Roshan-CV.pdf">Download my CV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></svg></a>
+              <p class="download-note">PDF · Original CV supplied with this portfolio</p>
+            </div>
+          </div>
+          <div class="contact-actions" aria-label="Contact details">
+            <a class="contact-link" href="mailto:Shiranroshan83@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span><small>Email</small>Shiranroshan83@gmail.com</span></a>
+            <a class="contact-link" href="tel:+971583017836"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3.5 10 7l-1.6 2.2a15 15 0 0 0 6.4 6.4L17 14l3.5 2.5-.8 3.2a2 2 0 0 1-2.2 1.5A18 18 0 0 1 2.8 6a2 2 0 0 1 1.5-2.2z"/></svg><span><small>Phone</small>+971 58 301 7836</span></a>
+            <div class="contact-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.4"/></svg><span><small>Location</small>Al Quoz, Al Khail Gate, Dubai, UAE</span></div>
+          </div>
+        </div>
+        <footer class="site-footer">
+          <div><span class="footer-name">Shiran Roshan</span> <span aria-hidden="true">·</span> <span>© <span id="current-year">2026</span></span></div>
+          <div class="footer-links"><a href="#home">Back to top ↑</a><a href="mailto:Shiranroshan83@gmail.com">Email</a><a href="./portfolio-assets/Shiran-Roshan-CV.pdf" download="Shiran-Roshan-CV.pdf">CV PDF</a></div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* =========================================================
+       Lightweight interactions: mobile navigation, reveal-on-scroll,
+       current copyright year, and graceful image fallback.
+       ========================================================= */
+    (() => {
+      const body = document.body;
+      const menuButton = document.querySelector('.menu-toggle');
+      const navigation = document.querySelector('#primary-navigation');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const year = document.querySelector('#current-year');
+      if (year) year.textContent = String(new Date().getFullYear());
+
+      if (menuButton && navigation) {
+        const closeMenu = () => {
+          navigation.classList.remove('is-open');
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.setAttribute('aria-label', 'Open navigation menu');
+        };
+        menuButton.addEventListener('click', () => {
+          const willOpen = !navigation.classList.contains('is-open');
+          navigation.classList.toggle('is-open', willOpen);
+          menuButton.setAttribute('aria-expanded', String(willOpen));
+          menuButton.setAttribute('aria-label', willOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
+        navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+        document.addEventListener('click', event => {
+          if (!navigation.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+        });
+      }
+
+      document.querySelectorAll('.experience-visual img').forEach(image => {
+        image.addEventListener('error', () => {
+          image.hidden = true;
+          const wrap = image.closest('.experience-visual');
+          if (wrap) wrap.classList.add('image-fallback');
+        }, { once: true });
+      });
+
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        body.classList.add('js-enabled');
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+        document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+      }
+    })();
+  </script>
+</body>
+</html>
